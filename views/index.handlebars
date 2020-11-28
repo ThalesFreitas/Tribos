@@ -1,13 +1,67 @@
 
 
+<div id="main" style="margin-top:10px;">
+  <div id="screenshot" style="width:392px;  ">
+    <div style="width:360px;">
+        <img class="img-responsive" style="width:390px; height: 390px; position: relative; border-radius: 4px;" src="/img/fundo.png">
+      
+    </div>
+    <div style="width:360px;">
+        <img class="img-responsive" style="width:196px; height: 183px; position: absolute;
+        margin-left: 96px; margin-top: -235px; border-radius: 4px;" src="/img/thales.jpg">
+       
+    </div>
+    
+  </div>
+  </div>
+
+  <div style="font-size:150%;">
+      <a id="a-make" href="#">Criar</a>
+      <a id="a-download" href="#" style="display:none;">Download</a>
+  </div>
+
+<script>
+      function makeScreenshot()
+      {
+          html2canvas(document.getElementById("screenshot"), {scale: 2}).then(canvas =>
+          {
+              canvas.id = "canvasID";
+              var main = document.getElementById("main");
+              while (main.firstChild) { main.removeChild(main.firstChild); }
+              main.appendChild(canvas);
+          });
+      }
+
+      document.getElementById("a-make").addEventListener('click', function()
+      {
+          document.getElementById("a-make").style.display = "none";
+          makeScreenshot();
+          document.getElementById("a-download").style.display = "inline";
+      }, false);
+
+      document.getElementById("a-download").addEventListener('click', function()
+      {
+          this.href = document.getElementById("canvasID").toDataURL();
+          this.download = "mtb_solidario.png";
+      }, false);
+  </script>
 
 
-<h4>1º Pedal Solidário Tribos Unidas</h4>
 
-<!--<div id="container">
+
+
+
+
+
+
+
+
+<!--<h4>1º Pedal Solidário Tribos Unidas</h4>
+
+<div id="container">
 <img style="position: absolute; left:1px;top:120px;z-indez:10" src="/img/PicsArt_11-27-12.11.34.png"  id="imgpost" alt="Postagem">
 <img style="position: absolute; left:1px;top:580px;z-indez:10"  src="/img/IMG_20200412_123558_635.jpg"  id="pessoa" alt="Postagem">
-</div>-->
+</div>
 
 <div id="container">
     <img src="/img/fundo.png" alt="pai">
@@ -18,6 +72,8 @@
 
 <br>
 <button onclick="takeScreenshot()">Baixar Imagem</button>
+<a href="download/acme-doc-2.0.1.txt"
+ download="Acme Documentation (ver. 2.0.1).txt">Download Text</a>-->
 
 
 
@@ -25,11 +81,24 @@
 
 
 
-function takeScreenshot() {
+
+
+
+
+
+
+
+
+
+
+/*function takeScreenshot() {
     html2canvas(document.querySelector("#container")).then(canvas => {
-        document.body.appendChild(canvas)
+       const copia = document.body.appendChild(canvas)
+       
+
+        
     });
-}
+}*/
 
 /*$(function() { 
     $("#btnSave").click(function() { 
@@ -67,7 +136,7 @@ height: 390px;
 margin-left: 1rem;
 }
 
-#filho img{
+#filhos img{
 position: absolute;
 width: 195px;
 height: 183px;
