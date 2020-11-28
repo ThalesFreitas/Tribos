@@ -1,0 +1,41 @@
+
+
+<h4>Lista de postagens encontradas</h4>
+
+ 
+<main>
+
+   {{#each postagens}}
+
+
+    <article class="theme-item mt-4">
+      
+        <header>
+           
+            <img src="https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}" alt="Imagem do tema {{nome}}">
+           
+      
+        </header>
+        <footer>
+            <div>
+                
+                <strong> Tema: {{nome}}</strong><br>
+                <small><b> Categoria:</b> {{categoria.nome}}</small><br>
+                <small><b> Modelo:</b> {{modelo.nome}}</small><br>
+                <small>Data de publicação: {{data}}</small>
+                
+            </div>
+             
+
+
+<a href="/admin/postagens/deletar/{{_id}}"><button class="btn btn-danger mt-3" id="deletetema">Deletar</button></a>
+ 
+        </footer>
+    </article>
+{{else}}
+
+<p>Nenhum dado encontrado!</p>
+
+  {{/each}}
+
+</main>

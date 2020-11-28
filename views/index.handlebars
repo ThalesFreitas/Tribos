@@ -1,0 +1,44 @@
+
+
+<h4>Temas disponiveis </h4>
+
+ 
+<main>
+
+   {{#each postagens}}
+
+
+    <article class="theme-item mt-4">
+      
+        <header>
+           
+             <img src="https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}" alt="Imagem do tema {{nome}}">
+           <!-- <img src="/img/uploads/{{key}}" alt="Imagem do tema {{nome}}"> -->
+      
+        </header>
+        <footer>
+            <div>
+                <strong> Tema: {{nome}}</strong><br> 
+                <small><b> Categoria:</b> {{categoria.nome}}</small><br>
+                <small><b> Modelo:</b> {{modelo.nome}}</small><br>
+                <small>Data de publicação: {{data}}</small>
+                
+            </div>
+             
+
+
+            <a href="https://api.whatsapp.com/send?phone=5534&text=Tenho%20interesse%20no%20tema {{nome}}
+            https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}" class="button" target="_blank">
+
+        <img src="/img/icons/whatsapp.svg" alt="whatsapp">Contato
+        </a>
+        </footer>
+    </article>
+{{else}}
+
+<p>Nenhum dado encontrado!</p>
+
+  {{/each}}
+
+</main>
+

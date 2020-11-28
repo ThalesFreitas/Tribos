@@ -1,0 +1,82 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+   
+
+
+<div class="card">
+    <div class="card-body">
+    <h4>Editar postagem:</h4>
+  <img src="https://uploadmpdecoracoes.s3.amazonaws.com/{{postagem.key}}" height="180" width="160" alt="Imagem do tema {{nome}}"><br> 
+  <br>
+
+<form action="/admin/postagem/edit" method="POST" enctype="multipart/form-data">
+<input type="hidden" value="{{postagem._id}}" name="id">
+
+    <label for="nome">Nome do Tema: </label>
+    <input type="text" name="nome" class="form-control" value="{{postagem.nome}}">
+
+    <label for="slugtema" class="mt-4">Slug do tema: </label>
+    <select name="slugtema" class="custom-select" >
+     
+    <option>{{postagem.slugtema}}</option>
+        {{#each slugtemas}}
+             <option>{{slugtema}}</option>
+        {{else}}
+        <option value="0">Nenhum slug registrado</option>
+        {{/each}}
+
+    </select><br>
+
+<label for="categoria" class="mt-4">Categoria: </label>
+    <select name="categoria" class="custom-select" id="faturamento-mes-referencia" required>
+                   
+                <option>{{postagem.categoria}}</option>
+                    {{#each categorias}}
+                    <option >{{nome}}</option>
+                    {{else}}
+                    <option value="0">Nenhuma categoria registrada</option>
+                   
+                    {{/each}}
+ 
+
+    </select><br>
+
+   <label for="modelo" class="mt-3">Modelo: </label>
+   <select name="modelo" class="custom-select">
+      <option>{{postagem.modelo}}</option>
+        {{#each modelos}}
+              <option value="{{nome}}">{{nome}}</option>
+        {{else}}
+         <option value="0">Nenhum modelo registrado</option>
+        {{/each}}
+
+    
+   </select>
+ <br>
+<label for="file" class="mt-4">Selecione uma imagem: </label><br>
+<img id="output" height="150px" width="150px"/><br> <br>
+<input type="file"  name="file" id="file" accept="image/*" onchange="loadFile(event)" required><br>
+
+
+<button class="btn btn-success mt-3" type="submit">Salvar postagem</button>
+</form>
+</div>
+</div>
+<br>
+<br>
+
+<!--Script Preview Imagem-->
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+

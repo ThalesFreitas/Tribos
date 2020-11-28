@@ -1,0 +1,20 @@
+{{#each erros}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+<h3>Novo slug: </h3>
+
+<div class="card">
+    <div class="card-body">
+<form action="/admin/slugtemas/nova" method="POST">
+<label for="slug">Nome do slug: </label>
+<input type="text" id="slugtema" name="slugtema" placeholder="Nome do slug para temas" class="form-control">
+<br>
+<button type="submit" class="btn btn-success">Criar slug</button>
+</form>
+    </div>
+</div>
+
+

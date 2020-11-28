@@ -1,0 +1,27 @@
+<h2>Lista de modelos: </h2>
+<hr>
+<a href="/admin/modelos/add"><button class="btn btn-success">Novo Modelo</button></a>
+<br>
+{{#each modelos}}
+<br>
+
+    <div class="card">
+        <div class="card-body">
+            <h4>Modelo: {{nome}}</h4>
+             <small><b>Slug do modelo:</b>  {{slug}}</small>
+             <br>
+             <small>Data de criação: {{date}}</small><br>
+             <a href="/admin/modelos/edit/{{_id}}"><br>
+             <button class="btn btn-success mt-4">Editar modelo</button>
+             </a>
+             <form action="/admin/modelos/deletar" method="POST">
+                 <input type="hidden" name="id" value="{{_id}}">
+                 <button type="submit" class="btn btn-danger mt-2">Deletar modelo</button>
+             </form>
+             
+        </div>
+    </div>
+
+{{else}}
+<h4 class="mt-3">Nenhum modelo registrado!</h4>
+{{/each}}

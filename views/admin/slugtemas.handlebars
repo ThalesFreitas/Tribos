@@ -1,0 +1,24 @@
+<h2>Listas de slugs para temas : </h2>
+<hr>
+<a href="/admin/slugtemas/add"><button class="btn btn-success">Novo slug</button></a>
+<br>
+{{#each slugtemas}}
+<br>
+    <div class="card" id="listacategorias">
+        <div class="card-body">
+            <h4>Slug: {{slugtema}}</h4>
+             <small>Data de criação: {{date}}</small><br>
+             <a href="/admin/slugtemas/edit/{{_id}}"><br>
+             <button class="btn btn-success mt-4">Editar slug</button>
+             </a>
+             <form action="/admin/slugtemas/deletar" method="POST">
+                 <input type="hidden" name="id" value="{{_id}}">
+                 <button type="submit" class="btn btn-danger mt-2">Deletar slug</button>
+             </form>
+             
+        </div>
+    </div>
+
+{{else}}
+<h4 class="mt-3">Nenhum slug registrado!</h4>
+{{/each}}

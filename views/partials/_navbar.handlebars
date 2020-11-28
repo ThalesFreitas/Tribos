@@ -1,0 +1,186 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">MP Decorações </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+
+  <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+        
+
+
+
+      <!-----------Temas--------------------------->
+      {{#if slugtemas}}
+       <li class="nav-item dropdown" id="temas">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Temas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+           {{#each slugtemas}}
+            <a class="dropdown-item" href="/temas/{{slugtema}}">{{slugtema}} </a>
+           {{/each}}
+              
+        </div>
+        </li>
+         {{else}}
+         <li class="nav-item dropdown" hidden></li>
+{{/if}}
+
+                    <!--Categorias -->
+ 
+ {{#if categorias}}
+        <li class="nav-item dropdown">
+           
+        <a  class="nav-link dropdown-toggle" id="navbarDropdowncat" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Categorias
+
+        </a>
+       
+        <div  class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+        
+           
+           {{#each categorias}}
+           
+            <a class="dropdown-item" href="/categorias/{{slug}}">{{nome}} </a>
+           {{/each}}
+              
+        </div>
+ 
+       
+        </li>
+        {{else}}
+         <li class="nav-item dropdown" hidden></li>
+{{/if}}
+
+
+ 
+         <!--Modelos -->
+         {{#if modelos}}
+        <li class="nav-item dropdown" id="temas">
+        <a   class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Modelos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+  
+  {{#each modelos}}
+            <a class="dropdown-item" href="/modelos/{{slug}}">{{nome}} </a>
+ 
+    {{/each}}  
+   
+    </div>
+        </li>
+         {{else}}
+         <li class="nav-item dropdown" hidden></li>
+        
+{{/if}}
+           
+
+      {{#if user}}
+
+ <li class="nav-item dropdown" id="temas">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Remover Tema
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+           {{#each slugtemas}}
+            <a class="dropdown-item" href="/admin/removetema/{{slugtema}}">{{slugtema}} </a>
+           {{/each}}
+              
+        </div>
+        </li>
+
+        <li class="nav-item dropdown" id="adicionar">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Adicionar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/admin/postagens">Postagem</a>
+           <a class="dropdown-item" href="/admin/slugtemas">Slugtema</a>
+           <a class="dropdown-item" href="/admin/categorias">Categoria</a>
+          <a class="dropdown-item" href="/admin/modelos">Modelo</a>   
+                
+        </li>
+
+
+       <li class="nav-item">
+        <a class="nav-link " href="/usuarios/logout" tabindex="-1" aria-disabled="true">Sair</a>
+      </li>
+      {{else}}
+ <li class="nav-item">
+        <a class="nav-link " href="/usuarios/login" tabindex="-1" aria-disabled="true">Login</a>
+      </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/admin/postagens">Postagem</a>
+           <a class="dropdown-item" href="/admin/slugtemas">Slugtema</a>
+           <a class="dropdown-item" href="/admin/categorias">Categoria</a>
+          <a class="dropdown-item" href="/admin/modelos">Modelo</a>   
+                
+        
+      
+       <!--<li class="nav-item">
+        <a class="nav-link " href="/usuarios/registro" tabindex="-1" aria-disabled="true">Registro</a>
+      </li>-->
+     
+
+      {{/if}}
+     
+    
+
+    </ul>
+
+      <!--Barra de pesquisa-->
+    <!--<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" id="myInput" type="text" placeholder="Procurar tema" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>-->
+    
+  </div>
+  
+</nav>
+
+
+<!--barra de pesquisa pelo dropdown-->
+<!--<div class="container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Temas
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+{{#each slugtemas}}
+<li><a id="nametheme" href="/temas/{{slugtema}}">{{slugtema}}</a></li>
+{{/each}}
+
+    </ul>
+  </div>
+</div>
+
+
+ 
+ 
+  
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>-->
+
+
