@@ -9,6 +9,9 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('connect-flash')
 
+const html2canvas = require('html2canvas')
+
+
 
 
 require("./models/Postagem")
@@ -87,6 +90,8 @@ console.log("Erro ao se conectar: "+err)
 
 // Definindo pasta do arquivo statico
 app.use(express.static(path.join(__dirname,"public")))
+
+
 
 
 //Rotas

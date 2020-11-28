@@ -22,6 +22,7 @@
     "express-handlebars": "^5.1.0",
     "express-session": "^1.17.1",
     "handlebars": "^4.5.3",
+    "html2canvas": "^1.0.0-rc.7",
     "mongoose": "^5.10.9",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
