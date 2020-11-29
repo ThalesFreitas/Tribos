@@ -1,35 +1,43 @@
 
+
 <div id="main" style="margin-top:10px;">
      
   <div id="screenshot" style="width:392px;  ">
     
     <div style="width:360px;">
        
-        <img class="img-responsive" style="width:390px; height: 390px; position: relative; border-radius: 4px;" src="/img/fundo.png">
-     
-    </div>
+        <img class="img-responsive" style="width:390px; height: 390px; position: relative; border-radius: 4px;"
+        src="/img/uploads/fundo.png">
+
+        
       
+    </div>
+     
     <div style="width:360px;">
-          {{#each postagens}}
+          
         <img class="img-responsive" style="width:196px; height: 181px; position: absolute;
         margin-left: 96px; margin-top: -235px; border-radius: 4px;" 
-        src="https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}">
+            src="/img/uploads/mtb.jpg">
          <!--src="/img/uploads/mtb.jpg">-->
-       {{/each}}
-       
-
+        <!--https://tribosunidas.s3.amazonaws.com/mtb.jpg"-->
     </div>
-     {{#each postagens}}
-<p id="nome">{{nome}}</p>
-<p id="equipe">{{equipe}}</p>
-<p id="cidade">{{cidade}}</p>
-{{/each}}
+
+
+
+{{#each postagens}}
+<h3 id="nome">{{nome}}</h3>
+<h3 id="equipe">{{equipe}}</h3>
+<h3 id="cidade">{{cidade}}</h3>
+    {{/each}}
+   
   </div>
     
   </div>
 
-  <div style="font-size:150%;">
+  <div>
+  
       <a id="a-make" href="#">Salvar</a>
+     
       <a id="a-download" href="#" style="display:none;">Baixar Imagem</a>
     
   </div>
@@ -66,8 +74,9 @@
 
 
 <style>
+
 #nome {
-    position: absolute;
+position: absolute;
 color: #FFFF00; 
 margin-top: -55px;
 margin-left: 130px;
@@ -77,7 +86,7 @@ font-size: 15px;
 #equipe {
 position: absolute;
 color:#BDB76B;
-margin-top: -40px;
+margin-top: -35px;
 margin-left: 149px;
 font-size: 15px;
 }
@@ -91,13 +100,13 @@ font-size: 15px;
 }
 
 #a-make {
-        
+        position: absolute;
         padding: 4px;
         text-align: center;
         width: 80px;
         border-radius: 4px;
         margin-left: 5px;
-        margin-top: 7px;
+        margin-top: 10px;
         font-size: 19px;
         background-color: green;
         color: white;
@@ -115,13 +124,13 @@ font-size: 15px;
         color: white;
     }
     #novobanner {
-        position: absolute;
+       position: absolute;
         padding: 4px;
         text-align: center;
         width: 120px;
         border-radius: 4px;
         margin-left: 5px;
-        margin-top: 12px;
+        margin-top: 55px;
         margin-bottom: 8px;
         font-size: 19px;
         background-color:purple;
