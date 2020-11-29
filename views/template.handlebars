@@ -10,11 +10,12 @@
     </div>
       
     <div style="width:360px;">
-         
+          {{#each postagens}}
         <img class="img-responsive" style="width:196px; height: 181px; position: absolute;
         margin-left: 96px; margin-top: -235px; border-radius: 4px;" 
-        src="/img/uploads/mtb.jpg">
-       
+        src="https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}">
+         <!--src="/img/uploads/mtb.jpg">-->
+       {{/each}}
        
 
     </div>
