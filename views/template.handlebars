@@ -10,20 +10,51 @@
      
     </div>
       
-    <!--<div style="width:360px;">
+    <div style="width:360px;">
          
         <img class="img-responsive" style="width:196px; height: 183px; position: absolute;
         margin-left: 96px; margin-top: -235px; border-radius: 4px;" 
-        src="/img/uploads/">
+        src="/img/uploads/mtb.jpg">
        
-    </div>-->
+       
+
+    </div>
     
   </div>
   </div>
 
-  <a href="/cadastro">Criar</a>
+  <div style="font-size:150%;">
+      <a id="a-make" href="#">Salvar</a>
+      <a id="a-download" href="#" style="display:none;">Baixar Imagem</a>
+       
+  </div>
+<a href="/">Novo</a>
+<script>
+      function makeScreenshot()
+      {
+          html2canvas(document.getElementById("screenshot"), {scale: 2}).then(canvas =>
+          {
+              canvas.id = "canvasID";
+              var main = document.getElementById("main");
+              while (main.firstChild) { main.removeChild(main.firstChild); }
+              main.appendChild(canvas);
+          });
+      }
 
+      document.getElementById("a-make").addEventListener('click', function()
+      {
+          document.getElementById("a-make").style.display = "none";
+          makeScreenshot();
+          document.getElementById("a-download").style.display = "inline";
+      }, false);
 
+      document.getElementById("a-download").addEventListener('click', function()
+      {
+          this.href = document.getElementById("canvasID").toDataURL();
+          this.download = "mtb_solidário.jpg";
+          
+      }, false);
+  </script>
 
 
 

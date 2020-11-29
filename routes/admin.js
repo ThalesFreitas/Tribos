@@ -573,7 +573,7 @@ router.post("/postagem/edit", multer(multerConfig).single('file'), eAdmin, (req,
 
 
 //////Rota Admin Deletar Postagem
-router.get("/postagens/deletar/:id" , eAdmin, async (req, res) => {
+router.delete("/postagens/deletar/:id" , async (req, res) => {
     const post = await Postagem.findById(req.params.id);
     await post.remove();
     req.flash("success_msg", "Postagem deletada com sucesso!")

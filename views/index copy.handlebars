@@ -1,34 +1,50 @@
 
 
 <div id="main" style="margin-top:10px;">
-     
   <div id="screenshot" style="width:392px;  ">
-    
     <div style="width:360px;">
-       
         <img class="img-responsive" style="width:390px; height: 390px; position: relative; border-radius: 4px;" src="/img/fundo.png">
-     
-    </div>
       
-    <!--<div style="width:360px;">
-         
+    </div>
+    <div style="width:360px;">
         <img class="img-responsive" style="width:196px; height: 183px; position: absolute;
-        margin-left: 96px; margin-top: -235px; border-radius: 4px;" 
-        src="/img/uploads/">
+        margin-left: 96px; margin-top: -235px; border-radius: 4px;" src="/img/thales.jpg">
        
-    </div>-->
+    </div>
     
   </div>
   </div>
 
-  <a href="/cadastro">Criar</a>
+  <div style="font-size:150%;">
+      <a id="a-make" href="#">Criar</a>
+      <a id="a-download" href="#" style="display:none;">Download</a>
+  </div>
 
+<script>
+      function makeScreenshot()
+      {
+          html2canvas(document.getElementById("screenshot"), {scale: 2}).then(canvas =>
+          {
+              canvas.id = "canvasID";
+              var main = document.getElementById("main");
+              while (main.firstChild) { main.removeChild(main.firstChild); }
+              main.appendChild(canvas);
+          });
+      }
 
+      document.getElementById("a-make").addEventListener('click', function()
+      {
+          document.getElementById("a-make").style.display = "none";
+          makeScreenshot();
+          document.getElementById("a-download").style.display = "inline";
+      }, false);
 
-
-
-
-  
+      document.getElementById("a-download").addEventListener('click', function()
+      {
+          this.href = document.getElementById("canvasID").toDataURL();
+          this.download = "mtb_solidário.jpg";
+      }, false);
+  </script>
 
 
 
@@ -181,4 +197,46 @@ margin-top: -40px;
 
 
 
+
+<!--<h4>Temas disponiveis </h4>
+
+ 
+<main>
+
+   {{#each postagens}}
+
+
+    <article class="theme-item mt-4">
+      
+        <header>
+           
+           <img src="https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}" alt="Imagem do tema {{nome}}">
+           <img src="/img/uploads/{{key}}" alt="Imagem do tema {{nome}}">
+      
+        </header>
+        <footer>
+            <div>
+                <strong> Tema: {{nome}}</strong><br> 
+                <small><b> Categoria:</b> {{categoria.nome}}</small><br>
+                <small><b> Modelo:</b> {{modelo.nome}}</small><br>
+                <small>Data de publicação: {{data}}</small>
+                
+            </div>
+             
+
+
+            <a href="https://api.whatsapp.com/send?phone=5534&text=Tenho%20interesse%20no%20tema {{nome}}
+            https://uploadmpdecoracoes.s3.amazonaws.com/{{key}}" class="button" target="_blank">
+
+        <img src="/img/icons/whatsapp.svg" alt="whatsapp">Contato
+        </a>
+        </footer>
+    </article>
+{{else}}
+
+<p>Nenhum dado encontrado!</p>
+
+  {{/each}}
+
+</main>-->
 

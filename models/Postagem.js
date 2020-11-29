@@ -19,32 +19,22 @@ const Postagem = new Schema({
 
     nome:{
         type: String,
-        required: true
+        
+    },
+    equipe:{
+        type: String,
+        
+    },
+    cidade:{
+        type: String,
+        
     },
 
-    slugtema: {
-        type: Schema.Types.ObjectId,
-        ref: "slugtemas",
-        required: true
-    },
-
-    categoria: {
-        type: Schema.Types.ObjectId,
-        ref: "categorias",
-        required: true
-    },
-    modelo: {
-        type: Schema.Types.ObjectId,
-        ref: "modelos",
-        required: true
-    },
-    
     data: {
         type: String,
         
         default: datapublicacao
-       
-       
+        
     },
 
     
@@ -84,7 +74,7 @@ Postagem.pre('remove', function() {
         }).promise()
     }else{
 return promisify(fs.unlink)(
-path.resolve(__dirname, "..", "public", "img", "uploads", this.key)
+path.resolve(__dirname, "..", "public", "img", "uploads", "mtb.jpg")
 );
     }
 });

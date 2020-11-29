@@ -9,9 +9,14 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('connect-flash')
 
+const fs = require('fs')
+const {promisify} = require('util')
+
+
 const html2canvas = require('html2canvas')
 
-
+const multer = require('multer')
+const multerConfig = require('./src/config/multer')
 
 
 require("./models/Postagem")
@@ -38,6 +43,8 @@ const cors = require('cors');
 const { json } = require('body-parser');
 const { parseJSON } = require('date-fns');
 const { request } = require('http');
+const { DataBrew } = require('aws-sdk');
+const { post } = require('./routes/admin');
 
 
 app.use(cors())
@@ -96,42 +103,62 @@ app.use(express.static(path.join(__dirname,"public")))
 
 //Rotas
 
-app.get('/', (req, res) => {
+app.get('/',  async (req, res) => {
+   
+     res.render('./index')
+})
 
-    Postagem.find().lean().populate("categoria").sort({data: "desc"}).populate("modelo").then((postagens) => {
-   
-   
-    Slugtema.find().lean().then((slugtemas) => {
+//formulario
+app.get('/cadastro', (req, res) => {
+     res.render('./formulario')
+});
+//template
+app.get('/template', (req, res) => {
+    res.render('./template')
+});
+
+app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
     
 
-    Categoria.find().lean().then((categorias) => {
+    const { originalname: name, size, key, location: url = ''} = req.file;
     
-          
-     Modelo.find().lean().then((modelos) => {
-         
-
-     res.render('index', {postagens: postagens,slugtemas: slugtemas,categorias: categorias,modelos: modelos});
     
-    }).catch((err) => {
-        req.flash("error_msg", "Houve um erro interno ao listar os modelos")
-        res.redirect("/")
-})
-
-}).catch((err) => {
-    req.flash("error_msg", "Houve um erro interno ao listar as categorias")
-    res.redirect("/")
-})
-
-}).catch((err) => {
-    req.flash("error_msg", "Houve um erro interno ao listar os slugtemas")
-    res.redirect("/")
-})
-
-}).catch((err) => {
-    req.flash("error_msg", "Houve um erro interno ao listar as postagens")
-    res.redirect("/")
-})
+    const post ={
    
+        nome: req.body.nome,
+        equipe: req.body.equipe,
+        cidade: req.body.cidade,
+       
+   
+    name,
+    size,
+    key,
+    url
+}
+console.log(post)
+
+Postagem(post).save().then(() => {
+      
+    req.flash("success_msg", "Postagem criada com sucesso!")
+    res.redirect("/template")
+   
+}).catch((err) => {
+    req.flash("error_msg", "Houve um erro durante o salvamento da postagem")
+    res.redirect("/template")
+})
+    
+})
+
+app.get("/deletar" , async (req, res) => {
+    
+    const post = await Postagem.deleteMany();
+    const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+    fs.unlinkSync(img);
+    res.redirect("/cadastro")
+
+    //const result = await Postagem.deleteMany();
+    //await result.remove();
+   // res.redirect('/');
 })
 
 //Teste JSON cpostagens

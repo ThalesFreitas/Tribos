@@ -1,0 +1,48 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Novo Template:</h4>
+<form action="/cadastro/criar" method="POST" enctype="multipart/form-data">
+<br>
+<br>
+    <label for="nome"><b>Nome do Atleta:</b></label>
+    <input type="text" name="nome" class="form-control"><br>
+
+    <label for="slugtema" class="mt-4"><b>Nome da Equipe:<br>
+    <small>(caso não faz parte de alguma equipe de pedal, deixar em branco)</small> </b></label>
+     <input type="text" name="equipe" class="form-control"><br>
+
+      <label for="slugtema" class="mt-4"><b>Cidade:</b></label>
+     <input type="text" name="cidade" class="form-control"><br>
+    
+   
+   <label for="file" class="mt-4">Selecione uma imagem: </label><br>
+<img id="output" height="150px" width="150px"/><br> <br>
+<input type="file"  name="file" id="file" accept="image/*" onchange="loadFile(event)"><br>
+ 
+
+    
+   
+   
+    <button class="btn btn-success mt-3" type="submit">Criar Template</button>
+</form>
+</div>
+</div>
+<br>
+<br>
+
+<!--Script Preview Imagem-->
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
