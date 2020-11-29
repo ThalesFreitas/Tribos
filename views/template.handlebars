@@ -1,7 +1,7 @@
 
 
 <div id="main" style="margin-top:10px;">
-     
+     <br>
   <div id="screenshot" style="width:392px;  ">
     
     <div style="width:360px;">
@@ -35,14 +35,18 @@
   </div>
 
   <div>
-  
+  <br>
       <a id="a-make" href="#">Salvar</a>
      
       <a id="a-download" href="#" style="display:none;">Baixar Imagem</a>
     
   </div>
+  
+<br>
 <a id="novobanner"  href="/">Novo Banner</a>
 <script>
+    
+
       function makeScreenshot()
       {
           html2canvas(document.getElementById("screenshot"), {scale: 2}).then(canvas =>
@@ -65,6 +69,7 @@
       {
           this.href = document.getElementById("canvasID").toDataURL();
           this.download = "mtb_solidário.jpg";
+       
           
       }, false);
   </script>
@@ -100,38 +105,38 @@ font-size: 15px;
 }
 
 #a-make {
-        position: absolute;
+      
         padding: 4px;
         text-align: center;
         width: 80px;
         border-radius: 4px;
         margin-left: 5px;
-        margin-top: 10px;
+        margin-top: 25px;
+        margin-bottom: 10px;
         font-size: 19px;
         background-color: green;
         color: white;
     }
     #a-download {
         
+
         padding: 4px;
-        text-align: center;
-        width: 80px;
+        width: 120px;
         border-radius: 4px;
         margin-left: 5px;
-        margin-top: 7px;
+        margin-top: 25px;
         font-size: 19px;
         background-color: green;
         color: white;
     }
     #novobanner {
-       position: absolute;
+     
         padding: 4px;
         text-align: center;
         width: 120px;
         border-radius: 4px;
         margin-left: 5px;
-        margin-top: 55px;
-        margin-bottom: 8px;
+        margin-top: 25px;
         font-size: 19px;
         background-color:purple;
         color: white;

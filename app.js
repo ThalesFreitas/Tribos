@@ -107,6 +107,9 @@ app.get('/',  async (req, res) => {
    
    const post = await Postagem.deleteMany();
     
+   
+
+
     //const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
     //if(img){
         //fs.unlinkSync(img)
@@ -155,17 +158,20 @@ Postagem(post).save().then(() => {
    
 }).catch((err) => {
     req.flash("error_msg", "Houve um erro durante o salvamento da postagem")
-    res.redirect("/template")
+    res.redirect("/")
 })
     
 })
 
-app.get("/deletar" , async (req, res) => {
+app.get("/deletar" , (req, res) => {
     
-    const post = await Postagem.deleteMany();
     const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
-    fs.unlinkSync(img);
-    res.redirect("/cadastro")
+    fs.unlinkSync(img)
+    res.redirect("/")
+   // const post = await Postagem.deleteMany();
+   // const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+   // fs.unlinkSync(img);
+    
 
     //const result = await Postagem.deleteMany();
     //await result.remove();
