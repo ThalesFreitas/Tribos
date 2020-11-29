@@ -109,7 +109,6 @@ app.get('/',  async (req, res) => {
     
    
 
-
     //const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
     //if(img){
         //fs.unlinkSync(img)
@@ -120,7 +119,8 @@ app.get('/',  async (req, res) => {
 
 //formulario
 app.get('/cadastro', (req, res) => {
-     res.render('./formulario')
+
+        res.render('./formulario')   
 });
 //template
 app.get('/template', (req, res) => {
@@ -133,7 +133,6 @@ app.get('/template', (req, res) => {
 
 app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
     
-
     const { originalname: name, size, key, location: url = ''} = req.file;
     
     
@@ -151,6 +150,7 @@ app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
 }
 console.log(post)
 
+
 Postagem(post).save().then(() => {
       
     req.flash("success_msg", "Banner criado com sucesso!")
@@ -164,9 +164,8 @@ Postagem(post).save().then(() => {
 })
 
 app.get("/deletar" , (req, res) => {
-    
-    const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
-    fs.unlinkSync(img)
+   
+
     res.redirect("/")
    // const post = await Postagem.deleteMany();
    // const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
