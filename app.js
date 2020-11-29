@@ -106,7 +106,7 @@ app.use(express.static(path.join(__dirname,"public")))
 app.get('/',  async (req, res) => {
    
     const post = await Postagem.deleteMany();
-    //
+    
     const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
     if(img){
         fs.unlinkSync(img)
