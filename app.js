@@ -107,10 +107,10 @@ app.get('/',  async (req, res) => {
    
     const post = await Postagem.deleteMany();
     
-    const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
-    if(img){
-        fs.unlinkSync(img)
-    }
+    //const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+    //if(img){
+        //fs.unlinkSync(img)
+    //}
    // fs.unlinkSync(img);
    res.render('./index')
 })
