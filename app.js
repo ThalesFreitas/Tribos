@@ -105,7 +105,14 @@ app.use(express.static(path.join(__dirname,"public")))
 
 app.get('/',  async (req, res) => {
    
-     res.render('./index')
+    const post = await Postagem.deleteMany();
+    
+    const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+    if(img){
+        fs.unlinkSync(img)
+    }
+   // fs.unlinkSync(img);
+   res.render('./index')
 })
 
 //formulario
@@ -114,7 +121,11 @@ app.get('/cadastro', (req, res) => {
 });
 //template
 app.get('/template', (req, res) => {
-    res.render('./template')
+   
+    Postagem.find().lean().populate().then((postagens) => {
+
+    res.render('./template' ,{postagens: postagens})
+    })
 });
 
 app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
@@ -139,7 +150,7 @@ console.log(post)
 
 Postagem(post).save().then(() => {
       
-    req.flash("success_msg", "Postagem criada com sucesso!")
+    req.flash("success_msg", "Banner criado com sucesso!")
     res.redirect("/template")
    
 }).catch((err) => {

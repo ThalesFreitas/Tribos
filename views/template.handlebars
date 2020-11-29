@@ -1,5 +1,4 @@
 
-
 <div id="main" style="margin-top:10px;">
      
   <div id="screenshot" style="width:392px;  ">
@@ -12,23 +11,28 @@
       
     <div style="width:360px;">
          
-        <img class="img-responsive" style="width:196px; height: 183px; position: absolute;
+        <img class="img-responsive" style="width:196px; height: 181px; position: absolute;
         margin-left: 96px; margin-top: -235px; border-radius: 4px;" 
         src="/img/uploads/mtb.jpg">
        
        
 
     </div>
-    
+     {{#each postagens}}
+<p id="nome">{{nome}}</p>
+<p id="equipe">{{equipe}}</p>
+<p id="cidade">{{cidade}}</p>
+{{/each}}
   </div>
+    
   </div>
 
   <div style="font-size:150%;">
       <a id="a-make" href="#">Salvar</a>
       <a id="a-download" href="#" style="display:none;">Baixar Imagem</a>
-       
+    
   </div>
-<a href="/">Novo</a>
+<a id="novobanner"  href="/">Novo Banner</a>
 <script>
       function makeScreenshot()
       {
@@ -59,137 +63,72 @@
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-<!--<h4>1º Pedal Solidário Tribos Unidas</h4>
-
-<div id="container">
-<img style="position: absolute; left:1px;top:120px;z-indez:10" src="/img/PicsArt_11-27-12.11.34.png"  id="imgpost" alt="Postagem">
-<img style="position: absolute; left:1px;top:580px;z-indez:10"  src="/img/IMG_20200412_123558_635.jpg"  id="pessoa" alt="Postagem">
-</div>
-
-<div id="container">
-    <img src="/img/fundo.png" alt="pai">
-    <div id="filho">
-       <img src="/img/thales.jpg" alt="filho"> 
-    </div>
-</div>
-
-<br>
-<button onclick="takeScreenshot()">Baixar Imagem</button>
-<a href="download/acme-doc-2.0.1.txt"
- download="Acme Documentation (ver. 2.0.1).txt">Download Text</a>-->
-
-
-
-<script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function takeScreenshot() {
-    html2canvas(document.querySelector("#container")).then(canvas => {
-       const copia = document.body.appendChild(canvas)
-       
-
-        
-    });
-}*/
-
-/*$(function() { 
-    $("#btnSave").click(function() { 
-        html2canvas($("#container"), {
-            onrendered: function(canvas) {
-                theCanvas = canvas;
-                document.body.appendChild(canvas);
-
-                canvas.toBlob(function(blob) {
-					saveAs(blob, "Dashboard.png"); 
-				});
-            }
-        });
-    });
-}); */
-
-
-//html2canvas(document.querySelector("#container")).then(canvas => {
-  //  document.body.appendChild(canvas)
-//});
-</script>
-
-
-<!--<p id="nome">Thales</p>
-<p id="equipe">Team Speedy</p>
-<p id="cidade">Ituiutaba</p>-->
 
 <style>
-
-
-#container img{
-position: relative;
- width: 390px;
-height: 390px;
-margin-left: 1rem;
-}
-
-#filhos img{
-position: absolute;
-width: 195px;
-height: 183px;
-margin-left: 113px;
-margin-top: -235px;
-border-radius: 4px;
-   
-}
-
-
-
-@media (min-width:1000px){
-#pessoa {
-width: 200px;
-height: 180px;
-margin-left: -300px;
-margin-top: 101px;
-border-radius: 4px;
-}
 #nome {
-color: cyan;
-margin-left: 152px;
+    position: absolute;
+color: #FFFF00; 
 margin-top: -55px;
-
+margin-left: 130px;
+font-size: 15px;
 }
+
 #equipe {
-color: cyan;
-margin-left: 170px;
-margin-top: -21px;
-
-}
-#cidade {
-color: cyan;
-margin-left: 290px;
+position: absolute;
+color:#BDB76B;
 margin-top: -40px;
+margin-left: 149px;
+font-size: 15px;
+}
 
+#cidade {
+position: absolute;
+color:white;
+margin-top: -43px;
+margin-left: 274px;
+font-size: 15px;
 }
-}
+
+#a-make {
+        
+        padding: 4px;
+        text-align: center;
+        width: 80px;
+        border-radius: 4px;
+        margin-left: 5px;
+        margin-top: 7px;
+        font-size: 19px;
+        background-color: green;
+        color: white;
+    }
+    #a-download {
+        
+        padding: 4px;
+        text-align: center;
+        width: 80px;
+        border-radius: 4px;
+        margin-left: 5px;
+        margin-top: 7px;
+        font-size: 19px;
+        background-color: green;
+        color: white;
+    }
+    #novobanner {
+        position: absolute;
+        padding: 4px;
+        text-align: center;
+        width: 120px;
+        border-radius: 4px;
+        margin-left: 5px;
+        margin-top: 12px;
+        margin-bottom: 8px;
+        font-size: 19px;
+        background-color:purple;
+        color: white;
+    }
+</style>
+
+
 
 
 
