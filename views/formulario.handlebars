@@ -11,26 +11,22 @@
 <br>
 <br>
     <label for="nome"><b>Nome do Atleta:</b></label>
-    <input type="text" name="nome" class="form-control"><br>
+    <input type="text" name="nome" class="form-control" value=""><br>
 
     <label for="slugtema" class="mt-4"><b>Nome da Equipe:<br>
     <small>(caso não tenha equipe, deixar o campo em branco.)</small> </b></label>
      <input type="text" name="equipe" class="form-control" value=""><br>
 
       <label for="slugtema" class="mt-4"><b>Cidade:</b></label>
-     <input type="text" name="cidade" class="form-control"><br>
+     <input type="text" name="cidade" class="form-control" value=""><br>
     
    
-   <label for="file" class="mt-4">Selecione uma imagem: (
-       <small>Se o tamanho da imagem for grande, o envio pode demora um pouco.)</small>
+   <label for="file" class="mt-4">Selecione uma imagem <small> <b>(tamanho permitido de até 7Mb)</b></small>
+
    </label><br>
 <img id="output" height="150px" width="150px"/><br> <br>
-<input type="file"  name="file" id="file" accept="image/*" onchange="loadFile(event)"><br>
+<input type="file"  required name="file" id="file" accept="image/*" onchange="loadFile(event)"><br>
  
-
-    
-   
-   
     <button class="btn btn-success mt-3" type="submit">Criar Banner</button>
 </form>
 </div>

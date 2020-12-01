@@ -23,12 +23,14 @@
     </div>
 
 
-
+<div id="containerdados">
 {{#each postagens}}
 <h3 id="nome">{{nome}}</h3>
 <h3 id="equipe">{{equipe}}</h3>
 <h3 id="cidade">{{cidade}}</h3>
     {{/each}}
+</div>
+
    
   </div>
     
@@ -80,29 +82,45 @@
 
 <style>
 
+#containerdados {
+    position: absolute;
+display: flex;
+
+width: 210px;
+height: 120px;
+margin-top: -120px;
+margin-left: 240px;
+
+}
+
 #nome {
 position: absolute;
+display: flex;
+flex-wrap: wrap;
 color: #890412; 
-margin-top: -88px;
-margin-left: 265px;
+margin-top: 35px;
+margin-left: 12px;
 font-family: 'Nerko One', cursive;
 font-size: 20px;
+
 }
 
 #equipe {
 position: absolute;
+display: flex;
+flex-wrap: wrap;
 color: #890412;
-margin-top: -70px;
-margin-left: 253px;
+margin-top: 55px;
+margin-left: 8px;
 font-family: 'Nerko One', cursive;
 font-size: 20px;
 }
 
 #cidade {
 position: absolute;
-color: #890412;
-margin-top: -46px;
-margin-left: 255px;
+color: white;
+margin-top: 95px;
+margin-left: 20px;
 font-family: 'Nerko One', cursive;
 font-size: 14px;
 }
