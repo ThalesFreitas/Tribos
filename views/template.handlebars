@@ -1,6 +1,6 @@
 
 
-<div id="main" style="margin-top:10px; width:410px; border-radius: 4px;">
+<div id="main" style="margin-top:10px; width:410px; border-radius: 4px; ">
      <br>
   <div id="screenshot" style="width:392px; border-radius: 4px; ">
     
@@ -15,11 +15,12 @@
      
     <div style="width:360px;">
           
-        <img class="img-responsive" style="width:170px; height: 170px; position: absolute;
+        <img class="img-responsive" id="image"  style="width:170px; height: 170px; position: absolute ; 
         margin-left: 120px; margin-top: -260px; border-radius: 4px; transform: rotate(-14deg);border: 2px solid white;" 
             src="/img/uploads/mtb.jpg">
          <!--src="/img/uploads/mtb.jpg">-->
         <!--https://tribosunidas.s3.amazonaws.com/mtb.jpg"-->
+        
     </div>
 
 
@@ -47,8 +48,8 @@
 <br>
 <a id="novobanner"  href="/">Novo Banner</a>
 <script>
-    
-
+     
+     
       function makeScreenshot()
       {
           html2canvas(document.getElementById("screenshot"), {scale: 2}).then(canvas =>
@@ -60,8 +61,6 @@
           });
       }
 
-
-      
       document.getElementById("a-make").addEventListener('click', function()
       {
           document.getElementById("a-make").style.display = "none";
@@ -76,11 +75,13 @@
       }, false);
       
        
- window.onload = function(){
+window.onload = function(){
+    
      document.getElementById('a-make').click();
- }
- 
-
+     //document.getElementById("image").style.display = 'none';
+    }
+   
+    
 
   </script>
 

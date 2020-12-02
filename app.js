@@ -107,62 +107,87 @@ app.get('/',  async (req, res) => {
    
    const post = await Postagem.deleteMany();
     
-   
-
+    try {
+        const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+        fs.unlinkSync(img)
+        res.render('./index')
+      //return Promise.all(fs.unlinkSync(img));
+    } catch(error) {
+     
+      res.render('./index')
+    }
+  
     //const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+   // fs.unlinkSync(img)
     //if(img){
         //fs.unlinkSync(img)
     //}
    // fs.unlinkSync(img);
-   res.render('./index')
+  
 })
 
 //formulario
 app.get('/cadastro', (req, res) => {
-
-        res.render('./formulario')   
+try{
+    res.render('./formulario') 
+}catch(err){
+    res.redirect('/')
+}
+          
 });
 
 
 //template
-app.get('/template',  (req, res) => {
-    Postagem.find().lean().populate().then((postagens) => {
+app.get('/template', (req, res) => {
+    try{
+        Postagem.find().lean().populate().then((postagens) => {
+            res.render('./template' ,{postagens: postagens})
+            })
+    }catch(err){
+        res.redirect('/')
+    }
+   
 
-    res.render('./template' ,{postagens: postagens})
-    })
-
+ //const img = path.resolve(__dirname, "public", "img", "uploads", "mtb.jpg")
+ //fs.unlinkSync(img)
+    
+    
+    
 });
 
 
 app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
     
-    const { originalname: name, size, key, location: url = ''} = req.file;
+    try{
+        const { originalname: name, size, key, location: url = ''} = req.file;
     
     
-    const post ={
-   
-        nome: req.body.nome,
-        equipe: req.body.equipe,
-        cidade: req.body.cidade,
+        const post ={
        
+            nome: req.body.nome,
+            equipe: req.body.equipe,
+            cidade: req.body.cidade,
+           
+       
+        name,
+        size,
+        key,
+        url
+    }
+    //console.log(post)
+    
+    
+    Postagem(post).save().then(() => {
+          
+        req.flash("success_msg", "Banner criado com sucesso!")
+        res.redirect("/template")
+       
+    })
+    }catch(err){
    
-    name,
-    size,
-    key,
-    url
-}
-console.log(post)
-
-
-Postagem(post).save().then(() => {
-      
-    req.flash("success_msg", "Banner criado com sucesso!")
-    res.redirect("/template")
-   
-}).catch((err) => {
     req.flash("error_msg", "Houve um erro durante o salvamento da postagem")
     res.redirect("/")
-})
+}
     
 })
 
