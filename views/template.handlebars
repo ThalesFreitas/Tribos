@@ -6,7 +6,7 @@
     
     <div style="width:360px;">
        
-        <img class="img-responsive" style="width:450px; height: 450px; position: relative; border-radius: 4px;"
+        <img class="img-responsive" style="width:430px; height: 430px; position: relative; border-radius: 4px; margin-left: 12px;"
         src="/img/uploads/fundo.png">
 
         
@@ -41,7 +41,7 @@
       <a id="a-make" href="#">Salvar</a>
      
       <a id="a-download" href="#" style="display:none;">Baixar Imagem</a>
-    
+   
   </div>
   
 <br>
@@ -60,20 +60,28 @@
           });
       }
 
+
+      
       document.getElementById("a-make").addEventListener('click', function()
       {
           document.getElementById("a-make").style.display = "none";
           makeScreenshot();
           document.getElementById("a-download").style.display = "inline";
       }, false);
-
+      
       document.getElementById("a-download").addEventListener('click', function()
       {
           this.href = document.getElementById("canvasID").toDataURL();
-          this.download = "mtb_solidário.jpg";
-       
-          
+          this.download = "mtb_solidário.jpg"; 
       }, false);
+      
+       
+ window.onload = function(){
+     document.getElementById('a-make').click();
+ }
+ 
+
+
   </script>
 
 
@@ -84,34 +92,34 @@
 
 #containerdados {
     position: absolute;
-display: flex;
 
-width: 210px;
-height: 120px;
-margin-top: -120px;
-margin-left: 240px;
+display: flex;
+    flex-wrap: wrap;
+width: 160px;
+height: 110px;
+margin-top: -110px;
+margin-left: 230px;
 
 }
 
 #nome {
 position: absolute;
-display: flex;
-flex-wrap: wrap;
+
 color: #890412; 
-margin-top: 35px;
-margin-left: 12px;
+margin-top: 29px;
+margin-left: 18px;
 font-family: 'Nerko One', cursive;
 font-size: 20px;
 
 }
 
 #equipe {
+   
 position: absolute;
-display: flex;
-flex-wrap: wrap;
 color: #890412;
-margin-top: 55px;
-margin-left: 8px;
+margin-top: 49px;
+margin-left: 16px;
+padding: 1px;
 font-family: 'Nerko One', cursive;
 font-size: 20px;
 }
@@ -119,10 +127,10 @@ font-size: 20px;
 #cidade {
 position: absolute;
 color: white;
-margin-top: 95px;
+margin-top: 89px;
 margin-left: 20px;
 font-family: 'Nerko One', cursive;
-font-size: 14px;
+font-size: 15px;
 }
 
 #a-make {
@@ -159,7 +167,7 @@ font-size: 14px;
         margin-left: 5px;
         margin-top: 25px;
         font-size: 19px;
-        background-color:purple;
+        background-color:#890412;
         color: white;
     }
 </style>

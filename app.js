@@ -122,14 +122,17 @@ app.get('/cadastro', (req, res) => {
 
         res.render('./formulario')   
 });
+
+
 //template
-app.get('/template', (req, res) => {
-   
+app.get('/template',  (req, res) => {
     Postagem.find().lean().populate().then((postagens) => {
 
     res.render('./template' ,{postagens: postagens})
     })
+
 });
+
 
 app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
     
