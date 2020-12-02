@@ -174,7 +174,7 @@ app.post('/cadastro/criar', multer(multerConfig).single('file'), (req, res) => {
         key,
         url
     }
-    //console.log(post)
+    
     
     
     Postagem(post).save().then(() => {
